@@ -25,9 +25,11 @@ def calcular_media(lista):
 
 Quero criar testes unitários usando unittest.
 
-Liste cenários de teste para essa função, incluindo:
+Liste pelo menos 6 cenários de teste para essa função, incluindo:
 - lista com números inteiros;
 - lista com números decimais;
+- lista com números negativos;
+- lista com zeros;
 - lista com apenas um elemento;
 - lista vazia gerando ValueError.
 
@@ -41,7 +43,9 @@ Informe entrada, resultado esperado e tipo de cenário.
 | T01 | Média de números inteiros | `calcular_media([10, 8, 6])` | `8` | Caso normal |
 | T02 | Média de números decimais | `calcular_media([2.5, 7.5])` | `5.0` | Caso normal |
 | T03 | Lista com apenas um número | `calcular_media([10])` | `10` | Caso de borda |
-| T04 | Lista vazia | `calcular_media([])` | `ValueError` | Caso de erro |
+| T04 | Média de números negativos | `calcular_media([-2, -4, -6])` | `-4` | Caso normal |
+| T05 | Média de zeros | `calcular_media([0, 0, 0])` | `0` | Caso de borda |
+| T06 | Lista vazia | `calcular_media([])` | `ValueError` | Caso de erro |
 
 ## Análise dos cenários
 
@@ -51,7 +55,11 @@ Os cenários T01 e T02 verificam o cálculo da média com números inteiros e de
 
 O cenário T03 verifica o caso em que a lista possui apenas um elemento.
 
-O cenário T04 verifica o caso de erro, pois uma lista vazia não permite o cálculo da média e deve gerar `ValueError`.
+O cenário T04 verifica o cálculo da média com números negativos.
+
+O cenário T05 verifica o comportamento da função quando a lista possui apenas zeros.
+
+O cenário T06 verifica o caso de erro, pois uma lista vazia não permite o cálculo da média e deve gerar `ValueError`.
 
 ## Código final dos testes
 
@@ -61,6 +69,8 @@ def test_calcular_media(self):
     self.assertEqual(calcular_media([10, 8, 6]), 8)
     self.assertEqual(calcular_media([2.5, 7.5]), 5.0)
     self.assertEqual(calcular_media([10]), 10)
+    self.assertEqual(calcular_media([-2, -4, -6]), -4)
+    self.assertEqual(calcular_media([0, 0, 0]), 0)
 
 def test_calcular_media_lista_vazia(self):
     """Testa se a lista vazia gera erro."""
