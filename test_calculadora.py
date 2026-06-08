@@ -48,6 +48,8 @@ class TestCalculadora(unittest.TestCase):
         self.assertEqual(calcular_media([10, 8, 6]), 8)
         self.assertEqual(calcular_media([2.5, 7.5]), 5.0)
         self.assertEqual(calcular_media([10]), 10)
+        self.assertEqual(calcular_media([-2, -4, -6]), -4)
+        self.assertEqual(calcular_media([0, 0, 0]), 0)
 
     def test_calcular_media_lista_vazia(self):
         """Testa se a lista vazia gera erro."""
